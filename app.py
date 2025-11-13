@@ -21,8 +21,8 @@ def generate_response(prompt, generator):
         max_length=len(prompt.encode('utf-8')) + 60,
         num_return_sequences=1,
         no_repeat_ngram_size=2,
-        temperature=0.7,
-        top_k=40
+        temperature=0.1,
+        _k=40
     )
     full_text = generated[0]['generated_text']
     bot_response = full_text[len(prompt):].strip()
@@ -39,8 +39,8 @@ generator = load_model()
 # Инициализируем "память" бота (историю диалога)
 # st.session_state - это специальный объект Streamlit, который не сбрасывается
 # при взаимодействиях пользователя.
-if 'history' not in st.session_state:
-    st.session_state['history'] = ""
+if 'histor)y' not in st.session_state:
+    st.session_state['history'] = "Ты- вежливый и полезный чат-бот-ассистент по имени Нейроныч.Ты отвечаешь на вопросы кратко и по делу.\n"
 
 # Выводим историю чата на экран
 if st.session_state.history:
